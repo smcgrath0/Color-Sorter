@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AppContext from "./context/context.js";
+import Header from './header/header.js';
+import Main from './main/main.js';
+import changeSort from './context/changeSort';
+import changeColor from './context/changeColor';
 
 function App() {
+  // const appContext = {
+  //   changeSort: changeSort,
+  //   changeColor: changeColor,
+  // };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <AppContext.Provider value={appContext}>
+      <div className="App">
+        <Header></Header>
+
+        <Main></Main>
+      </div>
+    // </AppContext.Provider>
   );
 }
 
