@@ -1,0 +1,10 @@
+main {
+  height: calc(100% - 64px);
+  width:100%;
+  display: flex;
+}
+
+.item {
+  height: 100%;
+  width: calc(100%/256);
+}
