@@ -10,7 +10,11 @@ import bubbleSort from "./bubble/bubble";
 function Main(props) {
   let colorArray = [];
   let context = useContext(AppContext);
-  let sortFunc;
+  let sortFunc
+
+  for (let i = 0; i < 256; i++) {
+    colorArray.push(i);
+  }
 
   switch (context.sort) {
     case "bubble":
@@ -26,20 +30,38 @@ function Main(props) {
       sortFunc = heapSort;
       break;
     default:
-      sortFunc = mergeSort;
+      colorArray = randomize(colorArray);
       break;
   }
-
-  console.log(context);
-  for (let i = 0; i < 256; i++) {
-    colorArray.push(i);
+  const chooseColor = ( color ) => {
+    let colorString = "";
+    switch (context.color) {
+      case "red":
+        colorString = `rgb(${color}, 0, 0)`;
+        break;
+      case "blue":
+        colorString = `rgb(0, 0, ${color})`;
+        break;
+      case "green":
+        colorString = `rgb(0, ${color}, 0)`;
+        break;
+      default:
+        colorString = `rgb(${color}, 0, 0)`;
+        break;
+    }
+    return colorString;
   }
-  colorArray = randomize(colorArray);
 
   return (
     <main>
       {colorArray.map((color) => {
-        return <div className="item" key={color} style={{backgroundColor: `rgb(${color}, 0, 0)`}}></div>
+        return (
+          <div
+            className="item"
+            key={color}
+            style={{ backgroundColor: chooseColor(color) }}
+          ></div>
+        );
       })}
     </main>
   );

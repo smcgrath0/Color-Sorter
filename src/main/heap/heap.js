@@ -1,1 +1,1 @@
-export default function heepSort() {}
+export default function heapSort() {}
