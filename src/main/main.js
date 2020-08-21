@@ -33,6 +33,7 @@ function Main(props) {
       colorArray = randomize(colorArray);
       break;
   }
+
   const chooseColor = ( color ) => {
     let colorString = "";
     switch (context.color) {
