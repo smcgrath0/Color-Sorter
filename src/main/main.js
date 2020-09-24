@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./main.css";
 import randomize from "./randomize.js";
 import AppContext from "../context/context.js";
@@ -8,31 +8,34 @@ import quickSort from "./quick/quick";
 import bubbleSort from "./bubble/bubble";
 
 function Main(props) {
-  let colorArray = [];
   let context = useContext(AppContext);
-  let sortFunc
 
-  for (let i = 0; i < 256; i++) {
-    colorArray.push(i);
-  }
-
-  switch (context.sort) {
-    case "bubble":
-      sortFunc = bubbleSort;
-      break;
-    case "merge":
-      sortFunc = mergeSort;
-      break;
-    case "quick":
-      sortFunc = quickSort;
-      break;
-    case "heap":
-      sortFunc = heapSort;
-      break;
-    default:
-      colorArray = randomize(colorArray);
-      break;
-  }
+  useEffect(() => {
+    if (!context.isPicked) {
+      switch (context.currentSort) {
+        case "bubbleSort":
+          context.setCurrentColorArray(bubbleSort(context.currentColorArray));
+          context.setIsPicked(true);
+          break;
+        case "mergeSort":
+          context.setCurrentColorArray(mergeSort(context.currentColorArray));
+          context.setIsPicked(true);
+          break;
+        case "quickSort":
+          context.setCurrentColorArray(quickSort(context.currentColorArray));
+          context.setIsPicked(true);
+          break;
+        case "heapSort":
+          context.setCurrentColorArray(heapSort(context.currentColorArray));
+          context.setIsPicked(true);
+          break;
+        default:
+          context.setCurrentColorArray(randomize(context.currentColorArray));
+          context.setIsPicked(true);
+          break;
+      }
+    }
+  })
 
   const chooseColor = ( color ) => {
     let colorString = "";
@@ -55,12 +58,12 @@ function Main(props) {
 
   return (
     <main>
-      {colorArray.map((color) => {
+      {context.currentColorArray.map((colorNumber) => {
         return (
           <div
             className="item"
-            key={color}
-            style={{ backgroundColor: chooseColor(color) }}
+            key={colorNumber}
+            style={{ backgroundColor: chooseColor(colorNumber) }}
           ></div>
         );
       })}
