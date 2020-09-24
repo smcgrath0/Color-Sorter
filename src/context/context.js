@@ -8,20 +8,11 @@ class AppProvider extends Component {
     currentColor: "",
     currentSort: "",
     currentColorArray: [...Array(256).keys()],
-    isPicked: false,
-  };
-
-  // Method to update state
-  setUser = (user) => {
-    this.setState((prevState) => ({ user }));
-  };
-
-  setIsPicked = (iP) => {
-    this.setState({ ...this.state, isPicked: iP });
+    sortedArray: [...Array(256).keys()],
   };
 
   setCurrentColorArray = (array) => {
-    this.setState({ ...this.state, currentColorArray: array });
+    this.setState((prevState) => ({ ...prevState, currentColorArray: array }));
   };
 
   changeSort = (e) => {
@@ -51,23 +42,21 @@ class AppProvider extends Component {
     const { currentColor } = this.state;
     const { currentSort } = this.state;
     const { currentColorArray } = this.state;
-    const { isPicked } = this.state;
+    const { sortedArray } = this.state;
     const { changeColor } = this;
     const { changeSort } = this;
     const { setCurrentColorArray } = this;
-    const { setIsPicked } = this;
 
     return (
       <AppContext.Provider
         value={{
+          sortedArray,
           currentColor,
           changeColor,
           currentSort,
-          isPicked,
           changeSort,
           currentColorArray,
           setCurrentColorArray,
-          setIsPicked,
         }}
       >
         {children}

@@ -1,45 +1,27 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import "./main.css";
 import randomize from "./randomize.js";
 import AppContext from "../context/context.js";
-import heapSort from "./heap/heap";
-import mergeSort from "./merge/merge";
-import quickSort from "./quick/quick";
-import bubbleSort from "./bubble/bubble";
 
-function Main(props) {
-  let context = useContext(AppContext);
-
-  useEffect(() => {
-    if (!context.isPicked) {
-      switch (context.currentSort) {
-        case "bubbleSort":
-          context.setCurrentColorArray(bubbleSort(context.currentColorArray));
-          context.setIsPicked(true);
-          break;
-        case "mergeSort":
-          context.setCurrentColorArray(mergeSort(context.currentColorArray));
-          context.setIsPicked(true);
-          break;
-        case "quickSort":
-          context.setCurrentColorArray(quickSort(context.currentColorArray));
-          context.setIsPicked(true);
-          break;
-        case "heapSort":
-          context.setCurrentColorArray(heapSort(context.currentColorArray));
-          context.setIsPicked(true);
-          break;
-        default:
-          context.setCurrentColorArray(randomize(context.currentColorArray));
-          context.setIsPicked(true);
-          break;
-      }
+class Main extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      counter:   0,
+      isLoading: false
     }
-  })
+  }
 
-  const chooseColor = ( color ) => {
+  static myContext = AppContext;
+
+  componentDidMount() {
+    let a = randomize(this.context.currentColorArray);
+    this.context.setCurrentColorArray(a);
+  }
+  
+  chooseColor ( color ) {
     let colorString = "";
-    switch (context.color) {
+    switch (this.context.currentColor) {
       case "red":
         colorString = `rgb(${color}, 0, 0)`;
         break;
@@ -56,19 +38,21 @@ function Main(props) {
     return colorString;
   }
 
-  return (
-    <main>
-      {context.currentColorArray.map((colorNumber) => {
-        return (
-          <div
-            className="item"
-            key={colorNumber}
-            style={{ backgroundColor: chooseColor(colorNumber) }}
-          ></div>
-        );
-      })}
-    </main>
-  );
+  render() {
+    return (
+      <main>
+        {this.context.currentColorArray.map((colorNumber) => {
+          return (
+            <div
+              className="item"
+              key={colorNumber}
+              style={{ backgroundColor: this.chooseColor(colorNumber) }}
+            ></div>
+          );
+        })}
+      </main>
+    );
+  }
 }
-
+Main.contextType = AppContext;
 export default Main;
