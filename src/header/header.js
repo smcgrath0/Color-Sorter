@@ -29,7 +29,7 @@ function Header() {
       setIsLoading(false);
     }
   }
-  
+
   let chooseHeapSort = ( type ) => {
     setIsLoading( true );
 
@@ -49,7 +49,7 @@ function Header() {
     }
     let current = heapSort(context.currentColorArray, heapI, heapK);
     if (current.isArray()) {
-      
+
       setIsLoading(false);
     } else {
       chooseHeapSort();
@@ -90,7 +90,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn btn-sort merge"
-            onClick={(e) => { 
+            onClick={(e) => {
               handleRandomClick(e);
             }}
           >
@@ -102,7 +102,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn btn-sort merge"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeSort(e);
               handleSortClick(e);
             }}
@@ -112,7 +112,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn btn-sort heap"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeSort(e);
               handleSortClick(e);
             }}
@@ -122,7 +122,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn btn-sort bubble"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeSort(e);
               handleSortClick(e);
             }}
@@ -132,7 +132,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn btn-sort quick"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeSort(e);
               handleSortClick(e);
             }}
@@ -144,8 +144,38 @@ function Header() {
         <div>
           <Button
             color="inherit"
+            className="btn turq-btn"
+            onClick={(e) => {
+              context.changeColor(e);
+              handleRandomClick(e);
+            }}
+          >
+            turq
+          </Button>
+          <Button
+            color="inherit"
+            className="btn yellow-btn"
+            onClick={(e) => {
+              context.changeColor(e);
+              handleRandomClick(e);
+            }}
+          >
+            Yellow
+          </Button>
+          <Button
+            color="inherit"
+            className="btn purple-btn"
+            onClick={(e) => {
+              context.changeColor(e);
+              handleRandomClick(e);
+            }}
+          >
+            Purple
+          </Button>
+          <Button
+            color="inherit"
             className="btn red-btn"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeColor(e);
               handleRandomClick(e);
             }}
@@ -155,7 +185,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn blue-btn"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeColor(e);
               handleRandomClick(e);
             }}
@@ -165,7 +195,7 @@ function Header() {
           <Button
             color="inherit"
             className="btn green-btn"
-            onClick={(e) => { 
+            onClick={(e) => {
               context.changeColor(e);
               handleRandomClick(e);
             }}

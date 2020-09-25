@@ -18,7 +18,7 @@ class Main extends React.Component {
     let a = randomize(this.context.currentColorArray);
     this.context.setCurrentColorArray(a);
   }
-  
+
   chooseColor ( color ) {
     let colorString = "";
     switch (this.context.currentColor) {
@@ -30,6 +30,15 @@ class Main extends React.Component {
         break;
       case "green":
         colorString = `rgb(0, ${color}, 0)`;
+        break;
+      case "purple":
+        colorString = `rgb(${color}, 0, ${color})`;
+        break;
+      case "yellow":
+        colorString = `rgb(${color}, ${color}, 0)`;
+        break;
+      case "turq":
+        colorString = `rgb(0, ${color}, ${color})`;
         break;
       default:
         colorString = `rgb(${color}, 0, 0)`;

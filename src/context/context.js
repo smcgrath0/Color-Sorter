@@ -34,6 +34,12 @@ class AppProvider extends Component {
       this.setState({ ...this.state, currentColor: "blue" });
     } else if (e.currentTarget.classList.contains("green-btn")) {
       this.setState({ ...this.state, currentColor: "green" });
+    } else if (e.currentTarget.classList.contains("purple-btn")) {
+      this.setState({ ...this.state, currentColor: "purple" });
+    } else if (e.currentTarget.classList.contains("yellow-btn")) {
+      this.setState({ ...this.state, currentColor: "yellow" });
+    } else if (e.currentTarget.classList.contains("turq-btn")) {
+      this.setState({ ...this.state, currentColor: "turq" });
     }
   };
 
