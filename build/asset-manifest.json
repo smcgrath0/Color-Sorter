@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "https://color-sorter.herokuapp.com/static/css/main.fd9d169f.chunk.css",
+    "main.js": "https://color-sorter.herokuapp.com/static/js/main.10ffb145.chunk.js",
+    "main.js.map": "https://color-sorter.herokuapp.com/static/js/main.10ffb145.chunk.js.map",
+    "runtime-main.js": "https://color-sorter.herokuapp.com/static/js/runtime-main.e7495988.js",
+    "runtime-main.js.map": "https://color-sorter.herokuapp.com/static/js/runtime-main.e7495988.js.map",
+    "static/js/2.d9ba9887.chunk.js": "https://color-sorter.herokuapp.com/static/js/2.d9ba9887.chunk.js",
+    "static/js/2.d9ba9887.chunk.js.map": "https://color-sorter.herokuapp.com/static/js/2.d9ba9887.chunk.js.map",
+    "index.html": "https://color-sorter.herokuapp.com/index.html",
+    "precache-manifest.413e3bcc067529a6a9bb1f5f3a76a96d.js": "https://color-sorter.herokuapp.com/precache-manifest.413e3bcc067529a6a9bb1f5f3a76a96d.js",
+    "service-worker.js": "https://color-sorter.herokuapp.com/service-worker.js",
+    "static/css/main.fd9d169f.chunk.css.map": "https://color-sorter.herokuapp.com/static/css/main.fd9d169f.chunk.css.map",
+    "static/js/2.d9ba9887.chunk.js.LICENSE.txt": "https://color-sorter.herokuapp.com/static/js/2.d9ba9887.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e7495988.js",
+    "static/js/2.d9ba9887.chunk.js",
+    "static/css/main.fd9d169f.chunk.css",
+    "static/js/main.10ffb145.chunk.js"
+  ]
+}
