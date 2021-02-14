@@ -5,7 +5,7 @@ const AppContext = React.createContext();
 class AppProvider extends Component {
   // Context state
   state = {
-    currentColor: "",
+    currentColor: "red",
     currentSort: "",
     currentColorArray: [...Array(256).keys()],
     sortedArray: [...Array(256).keys()],

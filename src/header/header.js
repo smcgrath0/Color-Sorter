@@ -26,6 +26,7 @@ function Header() {
 
     let check = currentObject.array.filter((element, index) => element === context.sortedArray[index] ? false : true);
     if (check.length === 0) {
+      setCounter(0);
       setIsLoading(false);
     }
   }
@@ -78,7 +79,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" class="header">
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ display: "flex" }}>
           <Typography variant="h6" className="header-title">
@@ -99,7 +100,7 @@ function Header() {
         </div>
 
         <div>
-          <Button
+          {/* <Button
             color="inherit"
             className="btn btn-sort merge"
             onClick={(e) => {
@@ -118,7 +119,7 @@ function Header() {
             }}
           >
             Heap Sort
-          </Button>
+          </Button> */}
           <Button
             color="inherit"
             className="btn btn-sort bubble"
@@ -129,7 +130,7 @@ function Header() {
           >
             Bubble Sort
           </Button>
-          <Button
+          {/* <Button
             color="inherit"
             className="btn btn-sort quick"
             onClick={(e) => {
@@ -138,70 +139,72 @@ function Header() {
             }}
           >
             Quick Sort
-          </Button>
+          </Button> */}
         </div>
 
-        <div>
-          <Button
-            color="inherit"
-            className="btn turq-btn"
-            onClick={(e) => {
-              context.changeColor(e);
-              handleRandomClick(e);
-            }}
-          >
-            turq
-          </Button>
-          <Button
-            color="inherit"
-            className="btn yellow-btn"
-            onClick={(e) => {
-              context.changeColor(e);
-              handleRandomClick(e);
-            }}
-          >
-            Yellow
-          </Button>
-          <Button
-            color="inherit"
-            className="btn purple-btn"
-            onClick={(e) => {
-              context.changeColor(e);
-              handleRandomClick(e);
-            }}
-          >
-            Purple
-          </Button>
-          <Button
-            color="inherit"
-            className="btn red-btn"
-            onClick={(e) => {
-              context.changeColor(e);
-              handleRandomClick(e);
-            }}
-          >
-            Red
-          </Button>
-          <Button
-            color="inherit"
-            className="btn blue-btn"
-            onClick={(e) => {
-              context.changeColor(e);
-              handleRandomClick(e);
-            }}
-          >
-            Blue
-          </Button>
-          <Button
-            color="inherit"
-            className="btn green-btn"
-            onClick={(e) => {
-              context.changeColor(e);
-              handleRandomClick(e);
-            }}
-          >
-            Green
-          </Button>
+        <div class="color-list">
+          <div class="inner-color-list">
+            <Button
+              color="inherit"
+              className={"btn color-btn turq-btn " + (context.currentColor === 'turq' ? ' active ' : '')} 
+              onClick={(e) => {
+                context.changeColor(e);
+                handleRandomClick(e);
+              }}
+            >
+              turq
+            </Button>
+            <Button
+              color="inherit"
+              className={"btn color-btn yellow-btn " + (context.currentColor === 'yellow' ? ' active ' : '')} 
+              onClick={(e) => {
+                context.changeColor(e);
+                handleRandomClick(e);
+              }}
+            >
+              Yellow
+            </Button>
+            <Button
+              color="inherit"
+              className={"btn color-btn purple-btn " + (context.currentColor === 'purple' ? ' active ' : '')} 
+              onClick={(e) => {
+                context.changeColor(e);
+                handleRandomClick(e);
+              }}
+            >
+              Purple
+            </Button>
+            <Button
+              color="inherit"
+              className={"btn color-btn red-btn " + (context.currentColor === 'red' ? ' active ' : '')} 
+              onClick={(e) => {
+                context.changeColor(e);
+                handleRandomClick(e);
+              }}
+            >
+              Red
+            </Button>
+            <Button
+              color="inherit"
+              className={"btn color-btn blue-btn " + (context.currentColor === 'blue' ? ' active ' : '')} 
+              onClick={(e) => {
+                context.changeColor(e);
+                handleRandomClick(e);
+              }}
+            >
+              Blue
+            </Button>
+            <Button
+              color="inherit"
+              className={"btn color-btn green-btn " + (context.currentColor === 'green' ? ' active ' : '')} 
+              onClick={(e) => {
+                context.changeColor(e);
+                handleRandomClick(e);
+              }}
+            >
+              Green
+            </Button>
+          </div>
         </div>
       </Toolbar>
     </AppBar>
