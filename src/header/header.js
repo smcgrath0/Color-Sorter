@@ -116,7 +116,7 @@ function Header() {
             }}
           >
             Merge Sort
-          </Button>
+          </Button> */}
           <Button
             color="inherit"
             className="btn btn-sort heap"
@@ -126,7 +126,7 @@ function Header() {
             }}
           >
             Heap Sort
-          </Button> */}
+          </Button>
           <Button
             color="inherit"
             className="btn btn-sort bubble"
