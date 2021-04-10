@@ -47,10 +47,14 @@ function Header() {
     if (heapI < 0 && heapK >= 0) {
       setHeapK(--heapK);
       let currentArray = [...context.currentColorArray]
+      console.log('currentArray 1', currentArray)
+      [currentArray[0], currentArray[heapK]] = [currentArray[heapK], currentArray[0]]
       let current = heapSort(currentArray, heapK, 0);
       if (Array.isArray(current)) {
+        console.log('currentArray 2', current)
         context.setCurrentColorArray(current);
       } else {
+        console.log('currentArray 3', current.arr)
         context.setCurrentColorArray(current.arr);
       }
     }
