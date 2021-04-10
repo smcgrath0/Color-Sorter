@@ -44,7 +44,7 @@ function Header() {
         context.setCurrentColorArray(current.arr);
       }
     }
-    if (heapI < 0 && heapK >= 0) {
+    if (heapI < 0 && heapK > 0) {
       setHeapK(--heapK);
       let currentArray = [...context.currentColorArray]
       console.log('currentArray 1', currentArray);
@@ -60,7 +60,7 @@ function Header() {
         context.setCurrentColorArray(current.arr);
       }
     }
-    if (heapI < 0 && heapK < 0) {
+    if (heapI < 0 && heapK =< 0) {
       if (context.checkCurrentColorArray()){
         setIsLoading(false);
       } else {
@@ -80,7 +80,7 @@ function Header() {
     } else if (context.currentSort === 'heapSort') {
       chooseHeapSort(heapSort)
     }
-  }, isLoading ? 200 : null)
+  }, isLoading ? 10 : null)
 
   let handleSortClick = ( e ) => {
       setIsLoading( true );
