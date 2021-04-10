@@ -15,7 +15,7 @@ export default function heapSort(arr, length, i) {
         let swap = arr[i];
         arr[i] = arr[largest];
         arr[largest] = swap;
-        heapSort(arr, length, largest);
+        return heapSort(arr, length, largest);
     } else {
         return arr
     }

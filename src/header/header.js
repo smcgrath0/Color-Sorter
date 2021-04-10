@@ -38,13 +38,9 @@ function Header() {
       setHeapI(--heapI);
       let currentArray = [...context.currentColorArray]
       let current = heapSort(currentArray, heapK, heapI);
-      while(!current) {
-
-      }
-      console.log('currentArray 1.1', current)
-      // if (Array.isArray(current)) {
+      if (Array.isArray(current)) {
         context.setCurrentColorArray(current);
-      // }
+      } 
     }
     if (heapI < 0 && heapK > 0) {
       setHeapK(--heapK);
@@ -54,20 +50,11 @@ function Header() {
       currentArray[0] = currentArray[heapK];
       currentArray[heapK] = swap;
       let current = heapSort(currentArray, heapK, 0);
-      while(!current) {
-        // if (Array.isArray(current)) {
-          console.log('currentArray 2', current)
-        //   context.setCurrentColorArray(current);
-        // }
-      }
       
-      // if (Array.isArray(current)) {
-        console.log('currentArray 3', current)
+      if (Array.isArray(current)) {
+        console.log('currentArray 2', current)
         context.setCurrentColorArray(current);
-      // } else {
-      //   console.log('currentArray 3', current.arr)
-      //   context.setCurrentColorArray(current.arr);
-      // }
+      }
     }
     if (heapI < 0 && heapK <= 0) {
       if (context.checkCurrentColorArray()){
