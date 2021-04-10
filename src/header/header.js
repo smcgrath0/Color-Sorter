@@ -36,24 +36,31 @@ function Header() {
 
     if (heapI >= 0) {
       setHeapI(--heapI);
-      let current = heapSort(context.currentColorArray, heapI, heapK);
-    }
-    if (heapK >= 0) {
-      setHeapK(--heapK);
-      let current = heapSort(context.currentColorArray, heapI, heapK);
+      let currentArray = [...context.currentColorArray]
+      let current = heapSort(currentArray, heapK, heapI);
       if (current.isArray()) {
-
+        context.setCurrentColorArray(current);
+      } else {
+        context.setCurrentColorArray(current.arr);
+      }
+    }
+    if (heapI < 0 && heapK >= 0) {
+      setHeapK(--heapK);
+      let currentArray = [...context.currentColorArray]
+      let current = heapSort(currentArray, heapK, 0);
+      if (current.isArray()) {
+        context.setCurrentColorArray(current);
+      } else {
+        context.setCurrentColorArray(current.arr);
       }
     }
     if (heapI < 0 && heapK < 0) {
-      setIsLoading(false);
-    }
-    let current = heapSort(context.currentColorArray, heapI, heapK);
-    if (current.isArray()) {
-
-      setIsLoading(false);
-    } else {
-      chooseHeapSort();
+      if (current.isArray()) {
+        setIsLoading(false);
+      } else {
+        setHeapI(Math.floor(arrayLength / 2 - 1));
+        setHeapK(arrayLength - 1);
+      }
     }
   }
 
@@ -67,7 +74,7 @@ function Header() {
     } else if (context.currentSort === 'heapSort') {
       chooseHeapSort(heapSort)
     }
-  }, isLoading ? 300 : null)
+  }, isLoading ? 200 : null)
 
   let handleSortClick = ( e ) => {
       setIsLoading( true );
@@ -90,7 +97,7 @@ function Header() {
         <div>
           <Button
             color="inherit"
-            className="btn btn-sort merge"
+            className="btn btn-random"
             onClick={(e) => {
               handleRandomClick(e);
             }}
