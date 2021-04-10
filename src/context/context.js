@@ -15,6 +15,16 @@ class AppProvider extends Component {
     this.setState((prevState) => ({ ...prevState, currentColorArray: array }));
   };
 
+  checkCurrentColorArray = () => {
+    if (this.state.currentColorArray === this.state.sortedArray) return true;
+    if (this.state.currentColorArray == null || this.state.sortedArray == null) return false;
+    if (this.state.currentColorArray.length !== this.state.sortedArray.length) return false;
+    for (var i = 0; i < this.state.currentColorArray.length; ++i) {
+      if (this.state.currentColorArray[i] !== this.state.sortedArray[i]) return false;
+    }
+    return true
+  }
+
   changeSort = (e) => {
     if (e.currentTarget.classList.contains("bubble")) {
       this.setState({ ...this.state, currentSort: "bubbleSort" });
@@ -52,6 +62,7 @@ class AppProvider extends Component {
     const { changeColor } = this;
     const { changeSort } = this;
     const { setCurrentColorArray } = this;
+    const { checkCurrentColorArray } = this;
 
     return (
       <AppContext.Provider
@@ -63,6 +74,7 @@ class AppProvider extends Component {
           changeSort,
           currentColorArray,
           setCurrentColorArray,
+          checkCurrentColorArray
         }}
       >
         {children}

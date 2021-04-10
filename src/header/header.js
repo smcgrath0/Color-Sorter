@@ -55,7 +55,12 @@ function Header() {
       }
     }
     if (heapI < 0 && heapK < 0) {
-      setIsLoading(false);
+      if (context.checkCurrentColorArray()){
+        setIsLoading(false);
+      } else {
+        setHeapI(Math.floor(arrayLength / 2 - 1));
+        setHeapK(arrayLength - 1);
+      }
     }
   }
 
