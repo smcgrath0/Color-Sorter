@@ -78,9 +78,9 @@ function Header() {
     } else if (context.currentSort === 'quickSort') {
       chooseBubbleSort(quickSort)
     } else if (context.currentSort === 'heapSort') {
-      chooseHeapSort(heapSort)
+      chooseHeapSort()
     }
-  }, isLoading ? 10 : null)
+  }, isLoading ? 50 : null)
 
   let handleSortClick = ( e ) => {
       setIsLoading( true );
