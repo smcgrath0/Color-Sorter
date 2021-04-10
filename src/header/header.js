@@ -35,21 +35,21 @@ function Header() {
     setIsLoading( true );
 
     if (heapI >= 0) {
-      setHeapI(--heapI);
       let currentArray = [...context.currentColorArray]
       let current = heapSort(currentArray, heapK, heapI);
+      setHeapI(--heapI);
       if (Array.isArray(current)) {
         context.setCurrentColorArray(current);
       } 
     }
     if (heapI < 0 && heapK > 0) {
-      setHeapK(--heapK);
       let currentArray = [...context.currentColorArray]
       let swap = currentArray[0];
       currentArray[0] = currentArray[heapK];
       currentArray[heapK] = swap;
       let current = heapSort(currentArray, heapK, 0);
-      
+      setHeapK(--heapK);
+
       if (Array.isArray(current)) {
         context.setCurrentColorArray(current);
       }
