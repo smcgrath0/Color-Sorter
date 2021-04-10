@@ -38,7 +38,7 @@ function Header() {
       setHeapI(--heapI);
       let currentArray = [...context.currentColorArray]
       let current = heapSort(currentArray, heapK, heapI);
-      if (current.isArray()) {
+      if (Array.isArray(current)) {
         context.setCurrentColorArray(current);
       } else {
         context.setCurrentColorArray(current.arr);
@@ -48,19 +48,14 @@ function Header() {
       setHeapK(--heapK);
       let currentArray = [...context.currentColorArray]
       let current = heapSort(currentArray, heapK, 0);
-      if (current.isArray()) {
+      if (Array.isArray(current)) {
         context.setCurrentColorArray(current);
       } else {
         context.setCurrentColorArray(current.arr);
       }
     }
     if (heapI < 0 && heapK < 0) {
-      // if (current.isArray()) {
-        setIsLoading(false);
-      // } else {
-      //   setHeapI(Math.floor(arrayLength / 2 - 1));
-      //   setHeapK(arrayLength - 1);
-      // }
+      setIsLoading(false);
     }
   }
 
