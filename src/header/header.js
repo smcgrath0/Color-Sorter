@@ -60,7 +60,7 @@ function Header() {
         context.setCurrentColorArray(current.arr);
       }
     }
-    if (heapI < 0 && heapK =< 0) {
+    if (heapI < 0 && heapK <= 0) {
       if (context.checkCurrentColorArray()){
         setIsLoading(false);
       } else {
