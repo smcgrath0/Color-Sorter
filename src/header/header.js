@@ -55,12 +55,12 @@ function Header() {
       }
     }
     if (heapI < 0 && heapK < 0) {
-      if (current.isArray()) {
+      // if (current.isArray()) {
         setIsLoading(false);
-      } else {
-        setHeapI(Math.floor(arrayLength / 2 - 1));
-        setHeapK(arrayLength - 1);
-      }
+      // } else {
+      //   setHeapI(Math.floor(arrayLength / 2 - 1));
+      //   setHeapK(arrayLength - 1);
+      // }
     }
   }
 
