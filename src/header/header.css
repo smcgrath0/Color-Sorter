@@ -103,7 +103,7 @@
         padding: 4px;
     }
     .header .inner-color-list:hover {
-        max-height: calc(28px*6);
+        max-height: 176px;
     }
     .header .color-btn {
         height:24px;
