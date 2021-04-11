@@ -36,7 +36,8 @@ function Header() {
 
     if (heapI >= 0) {
       let currentArray = [...context.currentColorArray]
-      let current = heapSort(currentArray, heapK, heapI);
+      let tempHeapI = heapI;
+      let current = heapSort(currentArray, heapK, tempHeapI);
       setHeapI(--heapI);
       if (Array.isArray(current)) {
         context.setCurrentColorArray(current);
@@ -47,7 +48,8 @@ function Header() {
       let swap = currentArray[0];
       currentArray[0] = currentArray[heapK];
       currentArray[heapK] = swap;
-      let current = heapSort(currentArray, heapK, 0);
+      let tempHeapK = heapK;
+      let current = heapSort(currentArray, tempHeapK, 0);
       setHeapK(--heapK);
 
       if (Array.isArray(current)) {
@@ -55,12 +57,7 @@ function Header() {
       }
     }
     if (heapI < 0 && heapK <= 0) {
-      // if (context.checkCurrentColorArray()){
-        setIsLoading(false);
-      // } else {
-      //   setHeapI(Math.floor(arrayLength / 2 - 1));
-      //   setHeapK(arrayLength - 1);
-      // }
+      setIsLoading(false);
     }
   }
 
