@@ -143,6 +143,17 @@ function Header() {
                 Bubble Sort
               </Button>
             </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Button
+                color="inherit"
+                className="btn btn-random"
+                onClick={(e) => {
+                  handleRandomClick(e);
+                }}
+              >
+                Randomize
+              </Button>
+            </MenuItem>
           </Menu>
         </div>
         <div style={{ display: "flex" }}>

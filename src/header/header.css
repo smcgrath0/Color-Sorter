@@ -89,4 +89,33 @@
     .header .mobile-menu {
         display: block;
     }
+    .header .color-list {
+        height:32px;
+        width: 32px;
+        max-width: 32px;
+    }
+    .header .inner-color-list {
+        height:600%;
+        width: 32px;
+        border-radius: 16px;
+        max-height: 32px;
+        max-width: 32px;
+        padding: 4px;
+    }
+    .header .inner-color-list:hover {
+        max-height: calc(28px*6);
+    }
+    .header .color-btn {
+        height:24px;
+        width: 24px;
+    }
+    .header .color-btn.active {
+        max-height: 24px;
+        max-width: 24px;
+    }
+    .header .inner-color-list:hover .color-btn{
+        max-height: 24px;
+        margin-bottom: 4px;   
+        max-width: 24px;
+    }
 }
