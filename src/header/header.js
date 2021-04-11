@@ -14,6 +14,8 @@ function Header() {
   let context = useContext(AppContext);
   const arrayLength = context.currentColorArray.length;
   let [ counter, setCounter ] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
   let [ heapI, setHeapI ] = useState(Math.floor(arrayLength / 2 - 1));
   let [ heapK, setHeapK ] = useState(arrayLength - 1);
   let [ isLoading, setIsLoading ] = useState(false);
@@ -83,17 +85,72 @@ function Header() {
     setIsLoading(false);
     context.setCurrentColorArray(randomize(context.currentColorArray));
   };
-
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <AppBar position="static" class="header">
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+
+        <div className="mobile-menu">
+          <IconButton 
+          edge="start" 
+          color="inherit" 
+          aria-label="menu"
+          onClick={handleMenu}>
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            open={open}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>
+              <Button
+                color="inherit"
+                className="btn btn-sort heap"
+                onClick={(e) => {
+                  context.changeSort(e);
+                  handleSortClick(e);
+                }}
+              >
+                Heap Sort
+              </Button>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Button
+                color="inherit"
+                className="btn btn-sort bubble"
+                onClick={(e) => {
+                  context.changeSort(e);
+                  handleSortClick(e);
+                }}
+              >
+                Bubble Sort
+              </Button>
+            </MenuItem>
+          </Menu>
+        </div>
         <div style={{ display: "flex" }}>
           <Typography variant="h6" className="header-title">
             Color Sorter
           </Typography>
         </div>
 
-        <div>
+        <div className="random-button-container">
           <Button
             color="inherit"
             className="btn btn-random"
@@ -105,7 +162,7 @@ function Header() {
           </Button>
         </div>
 
-        <div>
+        <div className="sorting-button-container">
           {/* <Button
             color="inherit"
             className="btn btn-sort merge"
