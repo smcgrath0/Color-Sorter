@@ -1,5 +1,6 @@
 import React, { useState, useContext,useEffect, useRef } from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton, MenuIcon, MenuItem, Menu    } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Button, IconButton, MenuItem, Menu } from '@material-ui/core'
+import { MenuIcon } from '@material-ui/icons'
 import "./header.css";
 import randomize from "../main/randomize.js";
 import AppContext from "../context/context.js";
