@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
 import { AppBar, Toolbar, Typography, Button, IconButton, MenuItem, Menu } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
 import "./header.css";

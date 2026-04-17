@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://color-sorter.herokuapp.com/precache-manifest.413e3bcc067529a6a9bb1f5f3a76a96d.js"
+  "https://color-sorter.herokuapp.com/precache-manifest.56b542c8cbc4c21883480dcbccd57db5.js"
 );
 
 self.addEventListener('message', (event) => {
